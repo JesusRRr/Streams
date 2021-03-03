@@ -5,6 +5,7 @@ import com.rolon.model.Person;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +17,13 @@ public class Main {
         separator();
         //Filter By Age
         people.stream()
-                .filter(person -> person.getAge()<40)
+                .filter(person -> person.getAge() < 40)
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+        separator();
+        // Sort by age
+        people.stream()
+                .sorted(Comparator.comparing(Person::getAge))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
