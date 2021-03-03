@@ -13,12 +13,13 @@ public class Main {
     public static void main(String[] args) {
         List<Person> people = getPeople();
         people.forEach(System.out::println);
-
+        separator();
         //Filter By Age
         people.stream()
                 .filter(person -> person.getAge()<40)
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
+
     }
 
     public static List<Person> getPeople(){
@@ -30,5 +31,9 @@ public class Main {
               new Person("Diana Krall", 56, Gender.FEMALE),
               new Person("Carlos Santana",73,Gender.MALE)
       );
+    }
+
+    public static void separator(){
+        System.out.println("------------------------------------------------");
     }
 }
